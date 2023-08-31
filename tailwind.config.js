@@ -9,10 +9,19 @@ export default {
       colors:{
         Pblue:'#00A0E3',
         Pblack:'#333333',
-        EasyBg:'#D0EDF9',
-        MedBg:'#DEFCDE',
-        HardBg:'#EEF9AB',
-        VeryHardBg:'#F6D6D6'
+        EasyBg:{
+          100:'#D0EDF9',
+          200:'#91c7de'
+        },
+        MedBg:{
+          100:'#DEFCDE',
+          200:'#9fd59d'
+        },
+        HardBg:{
+          100:'#EEF9AB',
+          200:'#eefe88'
+        },
+        VeryHardBg:{100:'#F6D6D6'}
       },
       fontFamily:{
         icon:['Imprima'],

@@ -5,6 +5,24 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+    .font-outline-blue {
+      -webkit-text-stroke: 1px #57B5DC;
+    }
+    .font-outline-green {
+      -webkit-text-stroke: 1px #78B676;
+    }
+    .font-outline-yell {
+        -webkit-text-stroke: 1px #C0D639;
+       
+    }
+    .font-outline-red {
+    -webkit-text-stroke: 1px #C81741;
+  
+    }
+    
+  }
+
 body{
     @apply bg-Pblue  font-body text-white;
 }
@@ -12,5 +30,6 @@ li .active{
     @apply border-b-4 border-white;
 }
 .card{
-    @apply   uppercase ;
+    @apply   uppercase   flex items-center py-5 px-6 gap-5 cursor-pointer;
 }
+ 
