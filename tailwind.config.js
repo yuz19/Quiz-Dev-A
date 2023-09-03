@@ -11,7 +11,8 @@ export default {
         Pblack:'#333333',
         EasyBg:{
           100:'#D0EDF9',
-          200:'#91c7de'
+          200:'#91c7de',
+          300:'#23CADE'
         },
         MedBg:{
           100:'#DEFCDE',

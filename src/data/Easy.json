@@ -1,0 +1,204 @@
+[
+    {
+      "question": "Quel langage est utilisé pour créer la structure d'une page web ?",
+      "reponse": "a",
+      "propositions": {
+        "a": "a) HTML",
+        "b": "b) CSS",
+        "c": "c) JavaScript",
+        "d": "d) Python"
+      }
+    },
+    {
+      "question": "Comment déclare-t-on une variable en JavaScript ?",
+      "reponse": "b",
+      "propositions": {
+        "a": "a) variable = 5;",
+        "b": "b) var variable = 5;",
+        "c": "c) let variable = 5;",
+        "d": "d) int variable = 5;"
+      }
+    },
+    {
+      "question": "Quelle balise est utilisée pour afficher un texte en gras en HTML ?",
+      "reponse": "c",
+      "propositions": {
+        "a": "a) <italic>",
+        "b": "b) <strong>",
+        "c": "c) <b>",
+        "d": "d) <em>"
+      }
+    },
+    {
+      "question": "Quelle balise est utilisée pour créer une liste non ordonnée en HTML ?",
+      "reponse": "a",
+      "propositions": {
+        "a": "a) <ul>",
+        "b": "b) <ol>",
+        "c": "c) <li>",
+        "d": "d) <dl>"
+      }
+    },
+    {
+      "question": "Quel attribut HTML est utilisé pour définir le lien vers une feuille de style externe ?",
+      "reponse": "b",
+      "propositions": {
+        "a": "a) href",
+        "b": "b) link",
+        "c": "c) rel",
+        "d": "d) src"
+      }
+    },
+    {
+      "question": "Quelle balise est utilisée pour insérer une image en HTML ?",
+      "reponse": "d",
+      "propositions": {
+        "a": "a) <img>",
+        "b": "b) <picture>",
+        "c": "c) <image>",
+        "d": "d) <imgsrc>"
+      }
+    },
+    {
+      "question": "Quel sélecteur CSS est utilisé pour sélectionner un élément par son identifiant ?",
+      "reponse": "a",
+      "propositions": {
+        "a": "a) #",
+        "b": "b) .",
+        "c": "c) *",
+        "d": "d) %"
+      }
+    },
+    {
+      "question": "Quelle propriété CSS est utilisée pour définir la taille de la police d'un texte ?",
+      "reponse": "c",
+      "propositions": {
+        "a": "a) font-family",
+        "b": "b) font-weight",
+        "c": "c) font-size",
+        "d": "d) text-size"
+      }
+    },
+    {
+      "question": "Quel attribut HTML est utilisé pour créer un lien hypertexte ?",
+      "reponse": "b",
+      "propositions": {
+        "a": "a) src",
+        "b": "b) href",
+        "c": "c) link",
+        "d": "d) rel"
+      }
+    },
+    {
+      "question": "Quelle balise est utilisée pour créer un lien hypertexte en HTML ?",
+      "reponse": "a",
+      "propositions": {
+        "a": "a) <a>",
+        "b": "b) <link>",
+        "c": "c) <href>",
+        "d": "d) <url>"
+      }
+    },
+    {
+      "question": "Quelle balise est utilisée pour créer un lien vers un tableau en HTML ?",
+      "reponse": "b",
+      "propositions": {
+        "a": "a) <table>",
+        "b": "b) <a>",
+        "c": "c) <link>",
+        "d": "d) <tab>"
+      }
+    },
+    {
+      "question": "Quel élément HTML est utilisé pour créer un saut de ligne ?",
+      "reponse": "c",
+      "propositions": {
+        "a": "a) <nl>",
+        "b": "b) <br>",
+        "c": "c) <newline>",
+        "d": "d) <lb>"
+      }
+    },
+    {
+      "question": "Comment commente-t-on un bloc de code en CSS ?",
+      "reponse": "b",
+      "propositions": {
+        "a": "a) /* commentaire */",
+        "b": "b) /* commentaire",
+        "c": "c) // commentaire",
+        "d": "d) // commentaire //"
+      }
+    },
+    {
+      "question": "Quel attribut HTML est utilisé pour définir une image alternative pour les lecteurs d'écran ?",
+      "reponse": "a",
+      "propositions": {
+        "a": "a) alt",
+        "b": "b) title",
+        "c": "c) src",
+        "d": "d) description"
+      }
+    },
+    {
+      "question": "Quelle balise est utilisée pour définir un titre de niveau 3 en HTML ?",
+      "reponse": "c",
+      "propositions": {
+        "a": "a) <h3>",
+        "b": "b) <heading3>",
+        "c": "c) <h>",
+        "d": "d) <title3>"
+      }
+    },
+    {
+      "question": "Quelle est la couleur par défaut du texte d'un lien hypertexte non visité en CSS ?",
+      "reponse": "b",
+      "propositions": {
+        "a": "a) rouge",
+        "b": "b) bleu",
+        "c": "c) vert",
+        "d": "d) noir"
+      }
+    },
+    {
+      "question": "Quelle balise est utilisée pour créer un lien vers une adresse email ?",
+      "reponse": "d",
+      "propositions": {
+        "a": "a) <email>",
+        "b": "b) <mail>",
+        "c": "c) <contact>",
+        "d": "d) <a>"
+      }
+    },
+    {
+      "question": "Quelle balise HTML est utilisée pour créer un bouton cliquable ?",
+      "reponse": "a",
+      "propositions": {
+        "a": "a) <button>",
+        "b": "b) <input>",
+        "c": "c) <submit>",
+        "d": "d) <clickable>"
+      }
+    },
+    {
+      "question": "Quelle balise HTML est utilisée pour créer un formulaire ?",
+      "reponse": "b",
+      "propositions": {
+        "a": "a) <form>",
+        "b": "b) <input>",
+        "c": "c) <submit>",
+        "d": "d) <field>"
+      }
+    },
+    {
+      "question": "Quel élément HTML est utilisé pour créer une case à cocher ?",
+      "reponse": "c",
+      "propositions": {
+        "a": "a) <checkbox>",
+        "b": "b) <check>",
+        "c": "c) <input type='checkbox'>",
+        "d": "d) <case>"
+      }
+    }
+ 
+]
+  

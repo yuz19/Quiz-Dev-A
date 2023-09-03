@@ -1,12 +1,19 @@
+import { list } from 'postcss';
 import React, { useState,useEffect } from 'react'
+import EasyQuiz from '../data/Easy.json'
 
 function Quiz() {
-        const [TmpChoice,setTmpChoice]=useState(null);
+        const [questions, setQuestions] = useState(null);
+        const [qstChoice,setQstChoice]=useState('')
+        const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
+        
+        const [TmpChoice,setTmpChoice]=useState('');
         const [contenu,setContenu]=useState(null)
         function choice(e){
                 e.stopPropagation();
                 const targetElement = e.target;
                 console.log(targetElement.tagName);
+            
                 if(targetElement.tagName!='DIV'){
                      
                                 // Traverse up the DOM tree to find the parent div
@@ -15,54 +22,147 @@ function Quiz() {
                                 if (parentDiv) {
                                   // Get the class of the parent div
                                   const parentDivClass = parentDiv.className;
-                                  setTmpChoice(parentDivClass.split(' ')[1]);
+                                  setTmpChoice(parentDiv.getAttribute('data-choice'));
                                 }
                               
                 }else{
-                        setTmpChoice(targetElement.className.split(' ')[1]);
+                        const choiceValue = targetElement.getAttribute('data-choice');
+                       
+                        setTmpChoice(choiceValue);
             
                 }
                 
         }
-        useEffect(() => {
-         
+    
+        function back(){
+                 
+                setTmpChoice(null)
+                setQuestions(null)
+                setQstChoice(null)
+                setCurrentQuestionIndex(0)
+        }
+        function checkSolution(choice){
+                //exemple static
+                const solution="html";
+                if(choice===solution){
+                      return 1;
+                } 
+        }
+        function solution(e){
+                e.stopPropagation();
                 
-                switch (TmpChoice) {
-                        case 'choice-Easy':
-                                setContenu(
+ 
+                var targetElement = e.target;
+             
+                console.log(targetElement)
+                if(targetElement.tagName!='DIV'){
+                     
+                        // Traverse up the DOM tree to find the parent div
+                        const parentDiv = e.target.closest('.card2');
+                    
+                        if (parentDiv) {
+                          // Get the class of the parent div
+                          const parentDivClass = parentDiv.className;
+                           targetElement=parentDiv
+                        }
+                      
+                } 
+                const targetClassName=targetElement.className;
+
+                const listsolutions=document.querySelectorAll('.card2')
+                const filter='contrast-200'
+                //RESET FILTER
+                listsolutions.forEach(element => {
+                        element.classList.remove(filter)
+                })
+                //Start filter
+                targetElement.classList.add(filter)
+                //console.log(targetElement.textContent.split('-')[1]);
+                var choice=targetElement.textContent.split('-')[1]
+                setTimeout(() => {
+                        
+                        if(checkSolution(choice) ){
+                                //array index +1
+                                console.log('next')
+                        }
+                }, 2000);
+                /*
+                listsolutions.forEach(element => {
+                        element.classList.remove('bg-EasyBg-300')
+                        element.classList.add('bg-red-800')
+                        console.log(element)
+                });
+                e.classList.remove('bg-red-800')*/
+                //boucler sur tous les card ajouter un tawilindcss quand on click sure la carte apres n temps afficher le resultat
+        } 
+        //for question and contenu
+        useEffect(()=>{
+                //console.log(qstChoice)
+                let contentToRender=null
+                if(questions!=null){
+ 
+                                if(qstChoice==='Easy'){
+                                contentToRender =(
                                 <div className='bg-EasyBg-100 w-full h-full'>
-                                        <div className='flex justify-center items-center gap-4 mt-10'>
+                                        <div className='flex justify-center items-center gap-4 mt-10 relative'>
+                                                <svg   onClick={back} className='absolute left-32 cursor-pointer' width="85" height="85" viewBox="0 0 85 85" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path  d="M37.1177 50.5386L37.1173 50.5383L35.3899 48.8125H58.4375C59.4072 48.8125 60.3372 48.4273 61.0229 47.7416C61.7085 47.0559 62.0938 46.1259 62.0938 45.1562V34.5312C62.0938 33.5616 61.7085 32.6316 61.0229 31.9459C60.3372 31.2602 59.4072 30.875 58.4375 30.875C57.4678 30.875 56.5378 31.2602 55.8521 31.9459C55.1665 32.6316 54.7812 33.5616 54.7812 34.5312V41.5H35.3899L37.1173 39.7742L37.1177 39.7739C37.8036 39.0879 38.189 38.1576 38.189 37.1875C38.189 36.2174 37.8036 35.2871 37.1177 34.6011C36.4317 33.9151 35.5013 33.5298 34.5312 33.5298C33.5612 33.5298 32.6308 33.9151 31.9448 34.6011L23.9765 42.5695C23.9764 42.5696 23.9762 42.5697 23.9761 42.5698C23.6363 42.9093 23.3668 43.3124 23.1829 43.7561C22.9989 44.2 22.9042 44.6758 22.9042 45.1562C22.9042 45.6367 22.9989 46.1125 23.1829 46.5564C23.3668 47.0001 23.6363 47.4032 23.9761 47.7427C23.9762 47.7428 23.9764 47.7429 23.9765 47.743L31.9448 55.7114C32.2845 56.0511 32.6877 56.3205 33.1315 56.5043C33.5753 56.6881 34.0509 56.7827 34.5312 56.7827C35.0116 56.7827 35.4872 56.6881 35.931 56.5043C36.3748 56.3205 36.778 56.0511 37.1177 55.7114C37.4573 55.3718 37.7267 54.9685 37.9106 54.5247C38.0944 54.081 38.189 53.6053 38.189 53.125C38.189 52.6447 38.0944 52.169 37.9106 51.7253C37.7267 51.2815 37.4573 50.8782 37.1177 50.5386ZM13.2812 14.2812H71.7188C72.8625 14.2812 73.9594 14.7356 74.7681 15.5444C75.5769 16.3531 76.0312 17.45 76.0312 18.5938V66.4062C76.0312 67.55 75.5769 68.6469 74.7681 69.4556C73.9594 70.2644 72.8625 70.7188 71.7188 70.7188H13.2812C12.1375 70.7188 11.0406 70.2644 10.2319 69.4556C9.4231 68.6469 8.96875 67.55 8.96875 66.4062V18.5938C8.96875 17.45 9.4231 16.3531 10.2319 15.5444C11.0406 14.7356 12.1375 14.2812 13.2812 14.2812Z" fill="#F8F8F8" stroke="#00A0E3" stroke-width="2"/>
+                                                </svg>
                                                 <svg width="90" height="90" viewBox="0 0 141 141" fill="none" xmlns="http://www.w3.org/2000/svg">
                                                 <path d="M70.5 0C31.5135 0 0 31.725 0 70.5C0 89.1978 7.42766 107.13 20.649 120.351C27.1955 126.898 34.9674 132.091 43.5208 135.634C52.0743 139.176 61.2418 141 70.5 141C89.1978 141 107.13 133.572 120.351 120.351C133.572 107.13 141 89.1978 141 70.5C141 61.2418 139.176 52.0743 135.634 43.5208C132.091 34.9674 126.898 27.1955 120.351 20.649C113.805 14.1024 106.033 8.90945 97.4792 5.36649C88.9257 1.82354 79.7582 0 70.5 0ZM95.175 42.3C97.9797 42.3 100.669 43.4142 102.653 45.3973C104.636 47.3805 105.75 50.0703 105.75 52.875C105.75 55.6797 104.636 58.3695 102.653 60.3527C100.669 62.3359 97.9797 63.45 95.175 63.45C92.3703 63.45 89.6805 62.3359 87.6973 60.3527C85.7141 58.3695 84.6 55.6797 84.6 52.875C84.6 50.0703 85.7141 47.3805 87.6973 45.3973C89.6805 43.4142 92.3703 42.3 95.175 42.3ZM45.825 42.3C48.6297 42.3 51.3195 43.4142 53.3027 45.3973C55.2859 47.3805 56.4 50.0703 56.4 52.875C56.4 55.6797 55.2859 58.3695 53.3027 60.3527C51.3195 62.3359 48.6297 63.45 45.825 63.45C43.0203 63.45 40.3305 62.3359 38.3473 60.3527C36.3641 58.3695 35.25 55.6797 35.25 52.875C35.25 50.0703 36.3641 47.3805 38.3473 45.3973C40.3305 43.4142 43.0203 42.3 45.825 42.3ZM70.5 109.275C54.0735 109.275 40.1145 98.982 34.4745 84.6H106.526C100.815 98.982 86.9265 109.275 70.5 109.275Z" fill="#57B5DC" />
                                                 </svg>
                                                 <h3 className='text-white   text-8xl font-outline-blue uppercase self-center'>easy</h3>
+                
                                         </div>
-                                        <div className='quiz-question'>
-                                                <h3 className='question'>Quel langage est utilise pour creer la structure d'une page web</h3>
+                
+                                        <div className='quiz-question mt-20 flex flex-col items-center gap-20'>
+                                                <h3 className='question text-gray-900 text-5xl'>{questions[currentQuestionIndex].question}</h3>
+                
+                                                <div className='suggestion grid grid-cols-2 w-2/3 gap-10 justify-center'>
+                                                
+                                                        <div className='card2  choice0 h-32 bg-EasyBg-300 hover:bg-EasyBg-300 ' onClick={(e)=>solution(e)}>
+                                                                <h3 className='text-gray-900 text-2xl'>{questions[currentQuestionIndex].propositions.a}</h3>
+                                                        </div>
+                                                        <div className='card2 choice1 h-32   bg-EasyBg-300 hover:bg-EasyBg-300'  onClick={(e)=>solution(e)}>
+                                                                <h3 className='text-gray-900 text-2xl'> {questions[currentQuestionIndex].propositions.b}</h3>
+                                                        </div>
+                
+                                                        <div className='card2 choice2 h-32  bg-EasyBg-300 hover:bg-EasyBg-300' onClick={(e)=>solution(e)}>
+                                                                <h3 className='text-gray-900 text-2xl'>{questions[currentQuestionIndex].propositions.c}</h3>
+                                                        </div>
+                
+                                                        <div className='card2 choice3  h-32 bg-EasyBg-300 hover:bg-EasyBg-300' onClick={(e)=>solution(e)}>
+                                                                <h3 className='text-gray-900 text-2xl'> {questions[currentQuestionIndex].propositions.d}</h3>
+                                                        </div>
+                                                </div>
                                         </div>
                                 </div>
-
                                 )
+                                }
+
+                  setContenu(contentToRender)          
+                }    
+
+                },[questions])
+        //basic contenu and affection new question
+        useEffect(() => {
+   
+                //console.log(TmpChoice)
+                switch (TmpChoice) {
+                        case 'choice-Easy':
+                                setQstChoice('Easy')
+                                setQuestions(EasyQuiz)
+                            
+
                                 break;
-                        case 'choice-Med':
-                                setContenu(<h3 className='text-neutral-950'>Medium</h3>)
-                                break;
-                        case 'choice-Med':
-                                setContenu(<h3 className='text-neutral-950'>Medium</h3>)
-                                break;
-                        case 'choice-hard':
-                                setContenu(<h3 className='text-neutral-950'>Hard</h3>)
-                                break;
-                        case 'choice-Med':
-                                setContenu(<h3 className='text-neutral-950'>Medium</h3>)
-                                break;
+                        
                         default:
                                 setContenu(            
                                 <><h3 className="text-Pblack text-5xl mt-14">
                                                 Choisissez la difficulté de le Quiz
                                         </h3><div className="card-container grid grid-cols-2 w-2/3 gap-4 mt-40">
 
-                                                        <div className="card choice-Easy bg-EasyBg-100 hover:bg-EasyBg-200" onClick={(e) => choice(e)}>
+                                                        <div className="card choice-Easy bg-EasyBg-100 hover:bg-EasyBg-200" data-choice="choice-Easy" onClick={(e) => choice(e)}>
                                                                 <svg width="141" height="141" viewBox="0 0 141 141" fill="none" xmlns="http://www.w3.org/2000/svg">
                                                                         <path d="M70.5 0C31.5135 0 0 31.725 0 70.5C0 89.1978 7.42766 107.13 20.649 120.351C27.1955 126.898 34.9674 132.091 43.5208 135.634C52.0743 139.176 61.2418 141 70.5 141C89.1978 141 107.13 133.572 120.351 120.351C133.572 107.13 141 89.1978 141 70.5C141 61.2418 139.176 52.0743 135.634 43.5208C132.091 34.9674 126.898 27.1955 120.351 20.649C113.805 14.1024 106.033 8.90945 97.4792 5.36649C88.9257 1.82354 79.7582 0 70.5 0ZM95.175 42.3C97.9797 42.3 100.669 43.4142 102.653 45.3973C104.636 47.3805 105.75 50.0703 105.75 52.875C105.75 55.6797 104.636 58.3695 102.653 60.3527C100.669 62.3359 97.9797 63.45 95.175 63.45C92.3703 63.45 89.6805 62.3359 87.6973 60.3527C85.7141 58.3695 84.6 55.6797 84.6 52.875C84.6 50.0703 85.7141 47.3805 87.6973 45.3973C89.6805 43.4142 92.3703 42.3 95.175 42.3ZM45.825 42.3C48.6297 42.3 51.3195 43.4142 53.3027 45.3973C55.2859 47.3805 56.4 50.0703 56.4 52.875C56.4 55.6797 55.2859 58.3695 53.3027 60.3527C51.3195 62.3359 48.6297 63.45 45.825 63.45C43.0203 63.45 40.3305 62.3359 38.3473 60.3527C36.3641 58.3695 35.25 55.6797 35.25 52.875C35.25 50.0703 36.3641 47.3805 38.3473 45.3973C40.3305 43.4142 43.0203 42.3 45.825 42.3ZM70.5 109.275C54.0735 109.275 40.1145 98.982 34.4745 84.6H106.526C100.815 98.982 86.9265 109.275 70.5 109.275Z" fill="#57B5DC" />
                                                                 </svg>
@@ -95,9 +195,11 @@ function Quiz() {
                                 break;
                 }
               }, [TmpChoice]);
+
+
   return (
     <div className='bg-white w-full h-screen mt-80 flex justify-center relative '>
-        <div className=' w-11/12 absolute bottom-1/4 h-full  bg-white  flex flex-col items-center'>
+        <div className=' w-11/12 absolute bottom-pos h-2xfull bg-white  flex flex-col items-center'>
             <h1 className='text-Pblue text-9xl font-medium pt-14 mb-10'>
                 QUIZ WEB
             </h1>
