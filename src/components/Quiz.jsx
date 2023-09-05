@@ -135,6 +135,7 @@ function Quiz() {
                                                                 <h3 className='text-gray-900 text-2xl'> {questions[currentQuestionIndex].propositions.d}</h3>
                                                         </div>
                                                 </div>
+                                                <h3></h3>
                                         </div>
                                 </div>
                                 )
