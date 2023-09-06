@@ -7,6 +7,7 @@ export default {
   theme: {
     extend: {
       colors:{
+      
         Pblue:'#00A0E3',
         Pblack:'#333333',
         EasyBg:{
