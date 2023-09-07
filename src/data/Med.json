@@ -1,0 +1,184 @@
+[
+    {
+      "question": "Quelle est la méthode JavaScript utilisée pour supprimer le dernier élément d'un tableau ?",
+      "reponse": "b",
+      "propositions": {
+        "a": "a) removeLast()",
+        "b": "b) pop()",
+        "c": "c) deleteLast()",
+        "d": "d) splice()"
+      }
+    },
+    {
+      "question": "Quelle est la différence entre 'let' et 'var' pour déclarer des variables en JavaScript ?",
+      "reponse": "c",
+      "propositions": {
+        "a": "a) Il n'y a aucune différence, ce sont des synonymes.",
+        "b": "b) 'var' est utilisé pour les variables globales, 'let' pour les variables locales.",
+        "c": "c) 'var' a une portée de fonction, 'let' a une portée de bloc.",
+        "d": "d) 'let' est obsolète, 'var' est la norme actuelle."
+      }
+    },
+    {
+      "question": "Quelle méthode JavaScript est utilisée pour ajouter un élément à la fin d'un tableau ?",
+      "reponse": "a",
+      "propositions": {
+        "a": "a) push()",
+        "b": "b) append()",
+        "c": "c) addToEnd()",
+        "d": "d) insert()"
+      }
+    },
+    {
+      "question": "Comment commente-t-on une ligne de code en CSS ?",
+      "reponse": "d",
+      "propositions": {
+        "a": "a) // commentaire",
+        "b": "b) /* commentaire */",
+        "c": "c) -- commentaire",
+        "d": "d) // commentaire //"
+      }
+    },
+    {
+      "question": "Quelle méthode JavaScript est utilisée pour convertir une chaîne de caractères en minuscules ?",
+      "reponse": "b",
+      "propositions": {
+        "a": "a) toLowerCase()",
+        "b": "b) lowercase()",
+        "c": "c) convertToLower()",
+        "d": "d) changeCase('lower')"
+      }
+    },
+    {
+      "question": "Quel sélecteur CSS est utilisé pour sélectionner tous les éléments d'une classe spécifique ?",
+      "reponse": "b",
+      "propositions": {
+        "a": "a) .",
+        "b": "b) .nom-de-classe",
+        "c": "c) #",
+        "d": "d) *"
+      }
+    },
+    {
+      "question": "Quelle est la méthode JavaScript utilisée pour arrondir un nombre à l'entier le plus proche ?",
+      "reponse": "a",
+      "propositions": {
+        "a": "a) Math.round()",
+        "b": "b) Math.floor()",
+        "c": "c) Math.ceil()",
+        "d": "d) Math.trunc()"
+      }
+    },
+    {
+      "question": "Quelle est la différence entre '==' et '===' en JavaScript ?",
+      "reponse": "b",
+      "propositions": {
+        "a": "a) Aucune différence, ce sont des synonymes.",
+        "b": "b) '==' compare les valeurs sans vérifier le type, '===' compare les valeurs et les types.",
+        "c": "c) '==' est utilisé pour les valeurs numériques, '===' pour les chaînes de caractères.",
+        "d": "d) '==' renvoie une valeur booléenne, '===' renvoie une valeur numérique."
+      }
+    },
+    {
+      "question": "Quelle méthode JavaScript est utilisée pour générer un nombre aléatoire entre 0 (inclus) et 1 (exclus) ?",
+      "reponse": "c",
+      "propositions": {
+        "a": "a) random()",
+        "b": "b) generateRandom()",
+        "c": "c) Math.random()",
+        "d": "d) getRandom()"
+      }
+    },
+    {
+      "question": "Quel attribut HTML est utilisé pour définir la valeur par défaut d'un champ de saisie ?",
+      "reponse": "a",
+      "propositions": {
+        "a": "a) value",
+        "b": "b) default",
+        "c": "c) initial",
+        "d": "d) val"
+      }
+    },
+    {
+      "question": "Quel élément HTML est utilisé pour créer un champ de saisie de texte ?",
+      "reponse": "c",
+      "propositions": {
+        "a": "a) <input type='text'>",
+        "b": "b) <text>",
+        "c": "c) <input type='input'>",
+        "d": "d) <textbox>"
+      }
+    },
+    {
+      "question": "Quelle propriété CSS est utilisée pour définir la marge extérieure d'un élément ?",
+      "reponse": "d",
+      "propositions": {
+        "a": "a) outer-margin",
+        "b": "b) margin-outside",
+        "c": "c) external-margin",
+        "d": "d) margin"
+      }
+    },
+    {
+      "question": "Quel sélecteur CSS est utilisé pour sélectionner le premier élément d'un type spécifique ?",
+      "reponse": "c",
+      "propositions": {
+        "a": "a) :first",
+        "b": "b) :first-of-type",
+        "c": "c) :first-child",
+        "d": "d) :initial"
+      }
+    },
+    {
+      "question": "Quelle est la méthode JavaScript utilisée pour déterminer la longueur d'une chaîne de caractères ?",
+      "reponse": "b",
+      "propositions": {
+        "a": "a) string.length()",
+        "b": "b) string.length",
+        "c": "c) string.size()",
+        "d": "d) string.count()"
+      }
+    },
+    {
+      "question": "Quelle est la différence entre une fonction et une méthode en JavaScript ?",
+      "reponse": "a",
+      "propositions": {
+        "a": "a) Une fonction est indépendante, tandis qu'une méthode est liée à un objet.",
+        "b": "b) Une fonction ne prend pas d'arguments, tandis qu'une méthode prend toujours des arguments.",
+        "c": "c) Une fonction est définie dans une classe, tandis qu'une méthode est définie en dehors des classes.",
+        "d": "d) Il n'y a pas de différence, ce sont des synonymes."
+      }
+    },
+    {
+      "question": "Quelle méthode JavaScript est utilisée pour supprimer un élément spécifique d'un tableau ?",
+      "reponse": "c",
+      "propositions": {
+        "a": "a) removeElement()",
+        "b": "b) deleteElement()",
+        "c": "c) splice()",
+        "d": "d) cutElement()"
+      }
+    },
+    {
+      "question": "Quelle propriété CSS est utilisée pour définir la largeur d'un élément ?",
+      "reponse": "a",
+      "propositions": {
+        "a": "a) width",
+        "b": "b) size",
+        "c": "c) length",
+        "d": "d) dimension"
+      }
+    },
+    {
+      "question": "Quelle est la méthode JavaScript utilisée pour convertir une chaîne de caractères en majuscules ?",
+      "reponse": "c",
+      "propositions": {
+        "a": "a) convertToUpper()",
+        "b": "b) toUpperCase()",
+        "c": "c) uppercase()",
+        "d": "d) changeCase('upper')"
+      }
+    }
+    
+]
+  

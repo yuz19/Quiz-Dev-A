@@ -17,7 +17,8 @@ export default {
         },
         MedBg:{
           100:'#DEFCDE',
-          200:'#9fd59d'
+          200:'#9fd59d',
+          300:'#23DE8F'
         },
         HardBg:{
           100:'#EEF9AB',
